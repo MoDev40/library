@@ -1,6 +1,6 @@
 // Import required modules and configuration
 import mongoose from "mongoose";
-import { dbName, dbUrl } from "./initialConfig.js";
+import { dbName, dbUrl } from "./config.js";
 import chalk from "chalk";
 
 // Async function to connect to the MongoDB database

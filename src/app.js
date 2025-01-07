@@ -1,15 +1,15 @@
-// Import required modules and configuration
-import express from "express";
 import chalk from "chalk";
-import helmet from "helmet";
-import cors from "cors";
-import morgan from "morgan";
-import rateLimit from "express-rate-limit";
 import compression from "compression";
 import cookieParser from "cookie-parser";
-import { nodeEnv, port } from "./config/initialConfig.js";
-import connectDB from "./config/dbConfig.js";
+import cors from "cors";
+import express from "express";
+import rateLimit from "express-rate-limit";
+import helmet from "helmet";
+import morgan from "morgan";
+import connectDB from "./config/db.js";
+import { nodeEnv, port } from "./config/config.js";
 import authRoutes from "./routes/authRoutes.js";
+import bookRouter from "./routes/bookRoute.js";
 
 // Initializing the app
 const app = express();
@@ -41,6 +41,7 @@ app.use(express.json());
 
 // Use authentication routes
 app.use("/api/auth", authRoutes);
+app.use("/api/books", bookRouter);
 
 // Global error handler
 app.use((err, req, res, next) => {
