@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import { jwtSecret } from "../config/config.js";
 import User from "../models/User.js";
 
-export  function auth(req, res, next) {
+export function auth(req, res, next) {
   try {
     const token = req.header("Authorization").replace("Bearer ", "");
 
@@ -28,7 +28,7 @@ export  function auth(req, res, next) {
 
 export const isAdmin = async (req, res, next) => {
   try {
-    const id = request.user;
+    const id = req.user;
     const user = await User.findById(id);
 
     if (user.role !== "admin") {

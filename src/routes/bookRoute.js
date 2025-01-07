@@ -33,7 +33,7 @@ router.post("/create", auth, isAdmin, async (req, res) => {
   }
 });
 
-router.put("/update/:id", auth, isAdmin, async (req, res) => {
+router.put("/edit/:id", auth, isAdmin, async (req, res) => {
   try {
     const { id } = req.params;
     const { title, author, year } = req.body;

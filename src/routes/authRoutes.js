@@ -45,7 +45,7 @@ router.post("/login", async (req, res) => {
 
     const payload = { user: user._id };
     const token = jwt.sign(payload, jwtSecret, {
-      expiresIn: "1h",
+      expiresIn: "12h",
     });
 
     user.password = undefined;
